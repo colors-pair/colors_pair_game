@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Experience</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+
+        @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+        .container { text-align: center; background: rgba(255,255,255,0.1); padding: 50px; border-radius: 30px; backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+
+        button { padding: 15px 40px; margin: 10px; font-size: 20px; cursor: pointer; border: none; border-radius: 50px; transition: 0.3s; font-weight: bold; }
+        
+        #yes-btn { background: #23d5ab; color: white; }
+        #no-btn { background: #e73c7e; color: white; position: absolute; }
+
+        .hidden { display: none; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .item { padding: 20px; background: rgba(255,255,255,0.2); border-radius: 15px; cursor: pointer; transition: 0.3s; }
+        .item:hover { transform: scale(1.1); background: rgba(255,255,255,0.4); }
+    </style>
+</head>
+<body>
+
+<div class="container" id="main">
+    <h1 id="q">Ready to explore our collection?</h1>
+    <button id="yes-btn" onclick="showCategories()">YES</button>
+    <button id="no-btn" onmouseover="moveNo()">NO</button>
+</div>
+
+<div class="container hidden" id="categories">
+    <h1>Choose Your Category</h1>
+    <div class="grid">
+        <div class="item" onclick="window.open('https://www.facebook.com/profile.php?id=61569954640228', '_blank')">Kurti</div>
+        <div class="item" onclick="window.open('https://www.facebook.com/profile.php?id=61569954640228', '_blank')">Earrings</div>
+        <div class="item" onclick="window.open('https://www.facebook.com/profile.php?id=61569954640228', '_blank')">Pendant</div>
+        <div class="item" onclick="window.open('https://www.facebook.com/profile.php?id=61569954640228', '_blank')">Bracelet</div>
+    </div>
+</div>
+
+<script>
+    function moveNo() {
+        const btn = document.getElementById('no-btn');
+        btn.style.top = Math.random() * 80 + 'vh';
+        btn.style.left = Math.random() * 80 + 'vw';
+    }
+
+    function showCategories() {
+        document.getElementById('main').classList.add('hidden');
+        document.getElementById('categories').classList.remove('hidden');
+    }
+</script>
+
+</body>
+</html>
